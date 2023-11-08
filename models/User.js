@@ -5,12 +5,17 @@ class User extends Model {}
 
 User.init(
   {
-    first_name: {
-      type: DataTypes.STRING
+    username: {
+      type: DataTypes.STRING,
+      allowNull: false,
     },
-    last_name: {
-      type: DataTypes.STRING
-    }
+    password: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [8],
+      },
+    },
   },
 
   {
