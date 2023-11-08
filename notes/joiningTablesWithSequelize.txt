@@ -1,0 +1,7 @@
+Step 1: Set up foreign keys                         - happens at model file
+Step 2: Set up the index.js in the models directory - happens at models/index.js
+Step 3: Tell sequelize when you want that data      - happens at route files
+
+
+CASCADE: If we delete an "owner" record, we also delete the associated record/s
+SET NULL: If we delete an "owner" record, the foreign key value in the associate record/s is set to null.
