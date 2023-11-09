@@ -5,9 +5,6 @@ class Comment extends Model {}
 
 Comment.init(
   {
-    // -------------------------------------------------------------
-    // Check if there is a more appropriate type for longer string
-    // -------------------------------------------------------------
     comment_content: {
       type: DataTypes.TEXT,
       allowNull: false,

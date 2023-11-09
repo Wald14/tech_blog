@@ -1,22 +1,40 @@
-// const User = require('./User');
+const User = require('./User');
+const Blog = require('./Blog');
+const Comment = require('./Comment');
 
-// ONE-to-ONE OR One-to-Many
+
 // ==============================
-// hasOne always goes on the model that does NOT have the foreign key
-/*
-  ModelA.hasOne(ModelB, {
-    foreignKey: 'A_id',
-    onDelete: 'CASCADE'
-  })
-*/
-// belongsTp always goes on the model that DOES have the foreign key
-/*
-  ModelB.belongsTo(ModelA, {
-    foreignKey: 'A_ids',
-    onDelete: 'CASCADE'
-  })
+// Blog & User relationship
+// ==============================
+Blog.belongsTo(User, {
+  foreignKey: 'user_id',
+})
 
-*/
+User.hasMany(Blog, {
+  foreignKey: 'user_id'
+})
+
+// ==============================
+// Comment & User relationship
+// ==============================
+Comment.belongsTo(User, {
+  foreignKey: 'user_id',
+})
+
+User.hasMany(Comment, {
+  foreignKey: 'user_id'
+})
+
+// ==============================
+// Comment & Blog relationship
+// ==============================
+Comment.belongsTo(Blog, {
+  foreignKey: 'blog_id',
+})
+
+Blog.hasMany(Comment, {
+  foreignKey: 'blog_id'
+})
 
 
-// module.exports = { User }
+module.exports = { User, Blog, Comment }

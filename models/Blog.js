@@ -9,16 +9,10 @@ Blog.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    // -------------------------------------------------------------
-    // Check if there is a more appropriate type for longer string
-    // -------------------------------------------------------------
     blog_content: {
       type: DataTypes.TEXT,
       allowNull: false,
     },
-    // -------------------------------------------------------------
-    // Can I just access the timestamp from below???
-    // -------------------------------------------------------------
     created_time: {
       type: DATETIME,
       allowNull: false,
