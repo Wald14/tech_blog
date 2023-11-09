@@ -13,14 +13,10 @@ Blog.init(
       type: DataTypes.TEXT,
       allowNull: false,
     },
-    created_time: {
-      type: DATETIME,
-      allowNull: false,
-    },
     user_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: "User",
+        model: "users",
         key: "id",
       }
     },
