@@ -1,3 +1,4 @@
+// Import models
 const User = require('./User');
 const Blog = require('./Blog');
 const Comment = require('./Comment');
@@ -11,8 +12,10 @@ Blog.belongsTo(User, {
 })
 
 User.hasMany(Blog, {
-  foreignKey: 'user_id'
+  foreignKey: 'user_id',
+  onDelete: 'CASCADE',
 })
+
 
 // ==============================
 // Comment & User relationship
@@ -22,8 +25,10 @@ Comment.belongsTo(User, {
 })
 
 User.hasMany(Comment, {
-  foreignKey: 'user_id'
+  foreignKey: 'user_id',
+  onDelete: 'CASCADE',
 })
+
 
 // ==============================
 // Comment & Blog relationship
@@ -33,7 +38,8 @@ Comment.belongsTo(Blog, {
 })
 
 Blog.hasMany(Comment, {
-  foreignKey: 'blog_id'
+  foreignKey: 'blog_id',
+  onDelete: 'CASCADE',
 })
 
 
