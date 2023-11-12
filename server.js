@@ -38,6 +38,6 @@ app.use(routes);
 
 // Starts the server to begin listening
 const okToSync = (process.env.NODE_ENV === 'production') ? false : true;
-sequelize.sync({ force: okToSync}).then(()=> {
+sequelize.sync({ force: true}).then(()=> {
   app.listen(PORT, () => console.log('Now listening at http://localhost' + PORT))
 });

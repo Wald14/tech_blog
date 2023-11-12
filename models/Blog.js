@@ -13,6 +13,10 @@ Blog.init(
       type: DataTypes.TEXT,
       allowNull: false,
     },
+    timeCreated: {
+      type: DataTypes.DATEONLY,
+      defaultValue: DataTypes.NOW,
+    },
     user_id: {
       type: DataTypes.INTEGER,
       references: {

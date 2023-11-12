@@ -2,25 +2,40 @@
 	"status": "success",
 	"payload": {
 		"id": 1,
-		"title": "Sports",
-		"blog_content": "Hockey is the best team sport by far!",
+		"title": "Hockey",
+		"blog_content": "Hockey is the best!",
+		"timeCreated": "2023-11-11",
 		"user_id": 1,
-		"createdAt": "2023-11-12T02:35:49.000Z",
-		"updatedAt": "2023-11-12T02:35:49.000Z"
+		"createdAt": "2023-11-12T05:06:16.000Z",
+		"updatedAt": "2023-11-12T05:06:16.000Z",
+		"Comments": [
+			{
+				"id": 1,
+				"comment_content": "You're totally right, hockey rules!",
+				"user_id": 1,
+				"blog_id": 1,
+				"createdAt": "2023-11-12T05:06:19.000Z",
+				"updatedAt": "2023-11-12T05:06:19.000Z"
+			}
+		],
+		"User": {
+			"id": 1,
+			"username": "Joe Smith",
+			"password": "$2b$10$kMv98xwlaMnwv6kohQ5nJeoJHJyGfoNMw65Nines1KpRuEMRUcHd6",
+			"createdAt": "2023-11-12T05:06:14.000Z",
+			"updatedAt": "2023-11-12T05:06:14.000Z"
+		}
 	}
 } --}}
-
-<div>
-  <h2>All Blogs</h2>
-
-  <div>
-    {{#each blogs as |blog|}}
-    <p>
-      {{blog.id}}
-      {{blog.title}}
-      {{blog.blog_content}}
-      {{blog.createdAt}}
-    </p>
-    {{/each}}
-  </div>
+{{#each blogs as |blog|}}
+<div class="card">
+  <a href='./{{blog.id}}'>
+    <h3 class="card-header">{{blog.title}}</h3>
+  </a>
+    <div div class="card-body">
+      <p class="card-title">
+        Posted by: {{blog.User.username}} on {{blog.timeCreated}}
+      </p>
+    </div>
 </div>
+{{/each}}

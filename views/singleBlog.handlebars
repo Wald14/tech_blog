@@ -22,8 +22,14 @@
 	]
 } --}}
 
-<div>
-   <p>
-			singleBlog.handlebars has returned the blog title:{{title}}
-	 </p>
+<div class="card">
+  <h3 class="card-header">{{blogs.title}}</h3>
+  <div class="card-body">
+    <p class="card-title">
+      Posted by: {{blogs.username}} on {{blogs.timeCreated}}
+    </p>
+		<p class="card-body">
+			{{blog_content}}
+		</p>
+  </div>
 </div>
