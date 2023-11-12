@@ -23,23 +23,27 @@
 } --}}
 
 <div class="card">
-	<h3 class="card-header">{{payload.dataValues.title}}</h3>
+	<h3 class="card-header">{{data.title}}</h3>
 	<div class="card-body">
 		<div class="card-title">
-			Posted by: {{payload.dataValues.username}} on {{payload.dataValues.timeCreated}}
+			Posted by: {{data.User.username}} on {{data.timeCreated}}
 		</div>
 		<p class="card-body">
-			{{payload.dataValues.blog_content}}
+			{{data.blog_content}}
 		</p>
 	</div>
 </div>
-{{#each payload.dataValues.Comments as |comment|}}
+{{#each data.Comments as |comment|}}
 <div class="card">
 	<div class="card-body">
-		{{comment.dataValues.comment_content}}
+		{{comment.comment_content}}
 	</div>
 	<div class="card-body"></div>
-	- {{comment.dataValues.user_id}} ({{comment.dataValues.createdAt}})
-	</div>
+	- {{comment.user_id}} ({{comment.createdAt}})
+</div>
 </div>
 {{/each}}
+<div class="card">
+				<textarea class="form-control" rows="3" placeholder="Leave a comment..."></textarea>
+				<input type="button" value="Submit">
+</div>
