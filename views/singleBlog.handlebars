@@ -23,13 +23,13 @@
 } --}}
 
 <div class="card">
-  <h3 class="card-header">{{blogs.title}}</h3>
+  <h3 class="card-header">{{payload.dataValues.title}}</h3>
   <div class="card-body">
     <p class="card-title">
-      Posted by: {{blogs.username}} on {{blogs.timeCreated}}
+      Posted by: {{payload.dataValues.username}} on {{payload.dataValues.timeCreated}}
     </p>
 		<p class="card-body">
-			{{blog_content}}
+			{{payload.dataValues.blog_content}}
 		</p>
   </div>
 </div>
