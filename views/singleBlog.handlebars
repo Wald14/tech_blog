@@ -26,7 +26,7 @@
 	<h3 class="card-header">{{data.title}}</h3>
 	<div class="card-body">
 		<div class="card-title">
-			Posted by: {{data.User.username}} on {{data.timeCreated}}
+			Posted by: {{data.User.username}} {{format_time data.createdAt}}
 		</div>
 		<p class="card-body">
 			{{data.blog_content}}
@@ -39,11 +39,14 @@
 		{{comment.comment_content}}
 	</div>
 	<div class="card-body"></div>
-	- {{comment.user_id}} ({{comment.createdAt}})
+	- {{comment.user_id}} {{format_time comment.createdAt}}
 </div>
 </div>
 {{/each}}
 <div class="card">
-				<textarea class="form-control" rows="3" placeholder="Leave a comment..."></textarea>
-				<input type="button" value="Submit">
+	<form>
+		<input type='hidden' name='blog_id' value='{{data.id}}'>
+		<textarea class="form-control" rows="3" placeholder="Leave a comment..."></textarea>
+		<input type="button" value="Submit">
+	</form>
 </div>

@@ -12,7 +12,7 @@ router.get('/', async (req, res) => {
     });
 
     // Serialize data so the template can read it
-    const blogs = payload.map((blog) => blog.get({plain: true}));
+    const blogs = payload.map((blogObj) => blogObj.get({plain: true}));
 
     // Pass serialized data and session flag into template
     res.render('allBlogs', {blogs: blogs})
@@ -22,25 +22,6 @@ router.get('/', async (req, res) => {
   }
 })
 
-// // Get single blog
-// router.get('/:id', async (req, res) => {
-//   try {
-//     console.log(req)
-//     // Get all blogs
-//     const payload = await Model.findAll({
-//       include: [{model: Comment}, {model: User}]
-//     });
-
-//     // Serialize data so the template can read it
-//     const blogs = payload.map((blog) => blog.get({plain: true}));
-
-//     // Pass serialized data and session flag into template
-//     res.render('singleBlog', {blogs: blogs[ - 1]})
-//     // res.status(200).json({ status: 'success', payload })
-//   } catch (err) {
-//     res.status(500).json({ status: 'error', payload: err.message })
-//   }
-// })
 
 // Get one blog by pk
 router.get('/:id', async (req, res) => {
