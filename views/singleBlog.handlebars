@@ -1,35 +1,45 @@
 {{!-- {
-	"status": "success",
-	"payload": [
-		{
-			"id": 1,
-			"title": "Sports",
-			"blog_content": "Hockey is the best team sport by far!",
-			"user_id": 1,
-			"createdAt": "2023-11-11T21:14:20.000Z",
-			"updatedAt": "2023-11-11T21:14:20.000Z",
-			"Comments": [
-				{
-					"id": 1,
-					"comment_content": "You're totally right, hockey rules!",
-					"user_id": 1,
-					"blog_id": 1,
-					"createdAt": "2023-11-11T21:14:25.000Z",
-					"updatedAt": "2023-11-11T21:14:25.000Z"
-				}
-			]
-		}
-	]
+"status": "success",
+"payload": [
+{
+"id": 1,
+"title": "Sports",
+"blog_content": "Hockey is the best team sport by far!",
+"user_id": 1,
+"createdAt": "2023-11-11T21:14:20.000Z",
+"updatedAt": "2023-11-11T21:14:20.000Z",
+"Comments": [
+{
+"id": 1,
+"comment_content": "You're totally right, hockey rules!",
+"user_id": 1,
+"blog_id": 1,
+"createdAt": "2023-11-11T21:14:25.000Z",
+"updatedAt": "2023-11-11T21:14:25.000Z"
+}
+]
+}
+]
 } --}}
 
 <div class="card">
-  <h3 class="card-header">{{payload.dataValues.title}}</h3>
-  <div class="card-body">
-    <p class="card-title">
-      Posted by: {{payload.dataValues.username}} on {{payload.dataValues.timeCreated}}
-    </p>
+	<h3 class="card-header">{{payload.dataValues.title}}</h3>
+	<div class="card-body">
+		<div class="card-title">
+			Posted by: {{payload.dataValues.username}} on {{payload.dataValues.timeCreated}}
+		</div>
 		<p class="card-body">
 			{{payload.dataValues.blog_content}}
 		</p>
-  </div>
+	</div>
 </div>
+{{#each payload.dataValues.Comments as |comment|}}
+<div class="card">
+	<div class="card-body">
+		{{comment.dataValues.comment_content}}
+	</div>
+	<div class="card-body"></div>
+	- {{comment.dataValues.user_id}} ({{comment.dataValues.createdAt}})
+	</div>
+</div>
+{{/each}}

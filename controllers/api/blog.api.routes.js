@@ -51,6 +51,7 @@ router.get('/:id', async (req, res) => {
       include: [{model: Comment}, {model: User}]
       }
     );
+    console.log(payload.dataValues.Comments)
     res.render('singleBlog', {payload})
     // res.status(200).json({ status: 'success', payload })
   } catch (err) {
