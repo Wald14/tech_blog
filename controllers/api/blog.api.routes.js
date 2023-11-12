@@ -1,26 +1,50 @@
 const router = require('express').Router();
 const Model = require('../../models/Blog');
+const {Comment} = require('../../models')
 
 
-// Get all records
+// Get all blogs
 router.get('/', async (req, res) => {
   try {
-    const payload = await Model.findAll();
+    // Get all blogs
+    const payload = await Model.findAll({
+      include: [{model: Comment}]
+    });
     res.status(200).json({ status: 'success', payload })
+  } catch (err) {
+    res.status(500).json({ status: 'error', payload: err.message })
+  }
+
+  // Serialize data so the template can read it
+  // const blogs = payload.map((blog) => payload.get({plain: ture}));
+
+  // Pass serialized data and session flag into template
+  // res.render('blogpage', {
+  //   blogs,
+  //   logged_in: req.session.logged_in
+  // })
+})
+
+
+
+
+// Get one blog by pk
+router.get('/:id', async (req, res) => {
+  try {
+    // const payload = await Model.findByPk(req.params.id);
+    // res.status(200).json({ status: 'success', payload })
+    const payload = await Model.findByPk(req.params.id)
+    res.status(200).json({ status: 'success', payload })
+    res.render('singleBlog', payload[req.params.num - 1])
+
   } catch (err) {
     res.status(500).json({ status: 'error', payload: err.message })
   }
 })
 
-// Get one record by pk
-router.get('/:id', async (req, res) => {
-  try {
-    const payload = await Model.findByPk(req.params.id);
-    res.status(200).json({ status: 'success', payload })
-  } catch (err) {
-    res.status(500).json({ status: 'error', payload: err.message })
-  }
-})
+
+
+
 
 // Create a new record
 router.post('/', async (req, res) => {

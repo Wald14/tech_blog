@@ -7,10 +7,13 @@ const Comment = require('./Comment');
 // ==============================
 // Blog & User relationship
 // ==============================
+
+// A Blog belongs to one User
 Blog.belongsTo(User, {
   foreignKey: 'user_id',
 })
 
+// A User can have many Blogs
 User.hasMany(Blog, {
   foreignKey: 'user_id',
   onDelete: 'CASCADE',
