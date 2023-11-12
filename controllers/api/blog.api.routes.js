@@ -10,7 +10,11 @@ router.get('/', async (req, res) => {
     const payload = await Model.findAll({
       include: [{model: Comment}]
     });
-    res.status(200).json({ status: 'success', payload })
+
+    const blogs = payload.map((blog) => blog.get({plain: true}));
+
+    res.render('allBlogs', {blogs: blogs})
+    // res.status(200).json({ status: 'success', payload })
   } catch (err) {
     res.status(500).json({ status: 'error', payload: err.message })
   }
@@ -31,11 +35,11 @@ router.get('/', async (req, res) => {
 // Get one blog by pk
 router.get('/:id', async (req, res) => {
   try {
-    // const payload = await Model.findByPk(req.params.id);
-    // res.status(200).json({ status: 'success', payload })
-    const payload = await Model.findByPk(req.params.id)
+    const payload = await Model.findByPk(req.params.id);
     res.status(200).json({ status: 'success', payload })
-    res.render('singleBlog', payload[req.params.num - 1])
+    // const payload = await Model.findByPk(req.params.id)
+
+    // res.render('singleBlog', payload[req.params.num - 1])
 
   } catch (err) {
     res.status(500).json({ status: 'error', payload: err.message })

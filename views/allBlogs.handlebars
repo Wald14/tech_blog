@@ -1,0 +1,26 @@
+{{!-- {
+	"status": "success",
+	"payload": {
+		"id": 1,
+		"title": "Sports",
+		"blog_content": "Hockey is the best team sport by far!",
+		"user_id": 1,
+		"createdAt": "2023-11-12T02:35:49.000Z",
+		"updatedAt": "2023-11-12T02:35:49.000Z"
+	}
+} --}}
+
+<div>
+  <h2>All Blogs</h2>
+
+  <div>
+    {{#each blogs as |blog|}}
+    <p>
+      {{blog.id}}
+      {{blog.title}}
+      {{blog.blog_content}}
+      {{blog.createdAt}}
+    </p>
+    {{/each}}
+  </div>
+</div>
