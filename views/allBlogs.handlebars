@@ -29,11 +29,11 @@
 } --}}
 {{#each blogs as |blog|}}
 <div class="card">
-  <a href='./{{blog.id}}'>
+  <a href='./blog/{{blog.id}}'>
     <h3 class="card-header">{{blog.title}}</h3>
     <div div class="card-body">
       <p class="card-title">
-        Posted by: {{blog.User.username}} on {{blog.timeCreated}}
+        Posted by: {{blog.User.username}} on {{format_time blog.createdAt}}
       </p>
     </div>
   </a>

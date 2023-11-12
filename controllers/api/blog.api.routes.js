@@ -15,7 +15,10 @@ router.get('/', async (req, res) => {
     const blogs = payload.map((blogObj) => blogObj.get({plain: true}));
 
     // Pass serialized data and session flag into template
-    res.render('allBlogs', {blogs: blogs})
+    res.render('allBlogs', {
+      blogs: blogs,
+      loggedIn: req.session.loggedIn,
+    })
     // res.status(200).json({ status: 'success', payload })
   } catch (err) {
     res.status(500).json({ status: 'error', payload: err.message })
