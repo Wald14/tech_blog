@@ -26,17 +26,6 @@ document
   .querySelector('.signup-form')
   .addEventListener('submit', signupHandler)
 
-
-
-
-
-
-
-
-
-
-
-
 // const form = document.getElementById("signupForm")
 // const confirmation = document.getElementById("signupConfirmation")
 

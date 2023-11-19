@@ -1,13 +1,10 @@
-// Dependencies
-const express = require('express');
-const session = require('express-session');
-const exphbs = require('express-handlebars');
+// Require Statments
 const path = require('path');
+const express = require('express');
+const exphbs = require('express-handlebars');
+const session = require('express-session');
 const routes = require('./controllers');
-
-// Import and incorporate custom helpers
 const helpers = require('./utils/helpers')
-const hbs = exphbs.create({ helpers });
 
 const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
@@ -16,7 +13,10 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const app = express();
 const PORT = process.env.PORT || 3001;
 
+// Sets up handlebars.js with helpers
+const hbs = exphbs.create({ helpers });
 
+// Session
 const sess = {
   secret: 'xD0gPEcYLsWS8f',
   cookie: {
@@ -34,7 +34,7 @@ const sess = {
 
 app.use(session(sess))
 
-// Set up handlebars
+// Inform Express.js on which template engine to use
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
@@ -46,6 +46,6 @@ app.use(routes);
 
 // Starts the server to begin listening
 const okToSync = (process.env.NODE_ENV === 'production') ? false : true;
-sequelize.sync({ force: true}).then(()=> {
+sequelize.sync({ force: false}).then(()=> {
   app.listen(PORT, () => console.log('Now listening at http://localhost' + PORT))
 });
