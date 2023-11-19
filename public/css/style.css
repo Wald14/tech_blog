@@ -20,3 +20,10 @@ h1 {
 #signupConfirmation {
   color: darkred
 }
+
+#logoutBtn {
+background-color: Transparent;
+border: none;
+cursor:pointer;
+overflow: hidden;   
+}

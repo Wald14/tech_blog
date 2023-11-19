@@ -17,7 +17,7 @@ router.get('/', async (req, res) => {
     // Pass serialized data and session flag into template
     res.render('allBlogs', {
       blogs: blogs,
-      loggedIn: req.session.loggedIn,
+      loggedIn: req.session.logged_in,
     })
   } catch (err) {
     res.status(500).json({ status: 'error', payload: err.message })
@@ -47,9 +47,24 @@ router.get('/single-blog/:id', async (req, res) => {
 // -------------------------------------------------------------------
 // Sends user to signup page
 // -------------------------------------------------------------------
-router.get('/signup', async (req, res) => {
+router.get('/login-signup', async (req, res) => {
   try {
-    res.render('signup');
+    res.render('login-signup');
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+// -------------------------------------------------------------------
+// Sends user to dashboard page
+// -------------------------------------------------------------------
+router.get('/dashboard', async (req, res) => {
+  try {
+    if (req.session.logged_in) {
+      res.render('dashboard')
+    } else {
+      res.redirect('/')
+    }
   } catch (err) {
     res.status(500).json(err);
   }
