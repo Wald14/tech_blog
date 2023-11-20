@@ -7,9 +7,12 @@ const { User, Blog, Comment } = require('../models');
 router.get('/', async (req, res) => {
   try {
     // Get all blogs
-    const payload = await Blog.findAll({
-      include: [{model: Comment}, {model: User}]
-    });
+    const payload = await Blog.findAll(
+      {
+        include: [{model: Comment}, {model: User}],
+        order: [['updatedAt', 'DESC']]
+      },
+    );
 
     // Serialize data so the template can read it
     const blogs = payload.map((blogObj) => blogObj.get({plain: true}));
@@ -64,7 +67,8 @@ router.get('/dashboard', async (req, res) => {
       // Get all blogs of specific user
       const payload = await Blog.findAll({
         include: [{model: Comment}, {model: User}],
-        where: {user_id: req.session.user_id}
+        where: {user_id: req.session.user_id},
+        order: [['createdAt', 'DESC']]
       });
 
       // Serialize data so the template can read it

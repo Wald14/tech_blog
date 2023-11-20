@@ -7,42 +7,41 @@ const Comment = require('./Comment');
 // ==============================
 // Blog & User relationship
 // ==============================
-
-// A Blog belongs to one User
-Blog.belongsTo(User, {
-  foreignKey: 'user_id',
-})
-
 // A User can have many Blogs
 User.hasMany(Blog, {
   foreignKey: 'user_id',
   onDelete: 'CASCADE',
 })
 
-
-// ==============================
-// Comment & User relationship
-// ==============================
-Comment.belongsTo(User, {
+// A Blog belongs to one User
+Blog.belongsTo(User, {
   foreignKey: 'user_id',
-})
-
-User.hasMany(Comment, {
-  foreignKey: 'user_id',
-  onDelete: 'CASCADE',
 })
 
 
 // ==============================
 // Comment & Blog relationship
 // ==============================
+Blog.hasMany(Comment, {
+  foreignKey: 'blog_id',
+  onDelete: 'CASCADE',
+})
+
 Comment.belongsTo(Blog, {
   foreignKey: 'blog_id',
 })
 
-Blog.hasMany(Comment, {
-  foreignKey: 'blog_id',
+
+// ==============================
+// Comment & User relationship
+// ==============================
+User.hasMany(Comment, {
+  foreignKey: 'user_id',
   onDelete: 'CASCADE',
+})
+
+Comment.belongsTo(User, {
+  foreignKey: 'user_id',
 })
 
 
