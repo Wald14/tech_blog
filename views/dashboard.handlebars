@@ -1,2 +1,16 @@
 <h2>YOUR DASHBOARD</h2>
 
+{{#each blogs as |blog|}}
+<div class="card">
+  <a href='/dashboard/edit/{{blog.id}}'>
+    <h3 class="card-header">{{blog.title}}</h3>
+    <div div class="card-body">
+      <p class="card-title">
+        You posted this on {{format_time blog.createdAt}}
+      </p>
+    </div>
+  </a>
+</div>
+{{/each}}
+
+<a href="/dashboard/newBlog"><button id="newTopicBtn">+ New Post</button></a>

@@ -1,0 +1,10 @@
+<h2>Edit Post</h2>
+<form id="edit-blog-form" blog_id="{{data.id}}">
+  <label>Title:</label>
+  <input type="text" id="saveBlogTitle" placeholder="Title" value="{{data.title}}"/>
+  <label>Content:</label>
+  <textarea name = "content" id="saveBlogContent">{{data.blog_content}}</textarea>
+  <input type="submit"></input>
+</form>
+
+<script src="/js/saveBlog.js"></script>

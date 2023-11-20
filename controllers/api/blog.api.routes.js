@@ -74,8 +74,13 @@ router.get('/:id', async (req, res) => {
 
 // Create a new record
 router.post('/', async (req, res) => {
+  // console.log("trying to make new blog")
   try {
-    const payload = await Model.create(req.body);
+    const payload = await Model.create({
+      ...req.body,
+      user_id: req.session.user_id,
+    });
+    // console.log(payload)
     res.status(200).json({ status: 'success', payload })
   } catch (err) {
     res.status(500).json({ status: 'error', payload: err.message })
