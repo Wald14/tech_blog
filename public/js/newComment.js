@@ -21,6 +21,8 @@ const makeComment = async (event) => {
   }
 }
 
+try{
 document
   .querySelector('#create-comment-form')
   .addEventListener('submit', makeComment)
+} catch (err) {}

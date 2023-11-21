@@ -40,7 +40,7 @@ router.get('/single-blog/:id', async (req, res) => {
     );
     const data = payload.get({plain: true});
     console.log({data});
-    res.render('singleBlog', {data})
+    res.render('singleBlog', {data, loggedIn: req.session.logged_in})
   } catch (err) {
     res.status(500).json({ status: 'error', payload: err.message })
   }
@@ -80,7 +80,7 @@ router.get('/dashboard', async (req, res) => {
         loggedIn: req.session.logged_in,
       })
     } else {
-      res.redirect('/')
+      res.redirect('/login-signup')
     }
   } catch (err) {
     res.status(500).json(err);
@@ -96,7 +96,8 @@ router.get('/dashboard/newBlog', async (req, res) => {
     if (req.session.logged_in) {
       res.render('newBlog', {loggedIn: req.session.logged_in})
     } else {
-      res.redirect('/')
+      // res.redirect('/')
+      res.redirect('/login-signup')
     }
   } catch (err) {
     res.status(500).json(err);
@@ -108,12 +109,11 @@ router.get('/dashboard/newBlog', async (req, res) => {
 // Sends user to edit page for blog based on blog's primary key id
 // -------------------------------------------------------------------
 router.get('/dashboard/edit/:id', async (req, res) => {
-  console.log(req.params)
   try {
     const payload = await Blog.findByPk(req.params.id);
     const data = payload.get({plain: true});
 
-    res.render('editBlog', {data})
+    res.render('editBlog', {data, loggedIn: req.session.logged_in})
   } catch (err) {
     res.status(500).json({ status: 'error', payload: err.message })
   }

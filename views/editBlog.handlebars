@@ -1,10 +1,11 @@
-<h2>Edit Post</h2>
-<form id="edit-blog-form" blog_id="{{data.id}}">
+<h2>Edit Blog</h2>
+<form id="edit-blog-form" class="d-grid gap-2" blog_id="{{data.id}}">
   <label>Title:</label>
   <input type="text" id="saveBlogTitle" placeholder="Title" value="{{data.title}}"/>
   <label>Content:</label>
-  <textarea name = "content" id="saveBlogContent">{{data.blog_content}}</textarea>
-  <input type="submit"></input>
+  <textarea name = "content" id="saveBlogContent" rows="5">{{data.blog_content}}</textarea>
+  <input type="submit" class="btn" id="saveBlogBtn" value="Save"></input>
+  <button id="deleteBtn" class="btn" type="button">Delete Blog</button>
 </form>
 
-<script src="/js/saveBlog.js"></script>
+<script src="/js/editBlog.js"></script>

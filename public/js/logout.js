@@ -4,9 +4,8 @@ const logout = async () => {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
   });
-
   if (response.ok) {
-    document.location.replace('/');
+    document.location.replace('/login-signup');
   } else {
     console.log(response.statusText);
   }
@@ -14,7 +13,8 @@ const logout = async () => {
 
 
 
-
+try {
 document
   .querySelector('#logoutBtn')
   .addEventListener('click', logout);
+} catch (err) {}

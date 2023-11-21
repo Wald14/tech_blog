@@ -12,7 +12,6 @@ const loginHandler = async (event) => {
       body: JSON.stringify({ username, password }),
       headers: { 'Content-Type': 'application/json' },
     });
-
     if (response.ok) {
       // If successful, redirect the browser to the profile page
       document.location.replace('/dashboard');
@@ -43,7 +42,6 @@ const signupHandler = async (event) => {
     if (response.ok) {
       // If successful, redirect the browser to the dashboard page
       document.location.replace('/dashboard');
-      // document.location.replace('/dashboard');
     } else {
       confirmation.textcontent = `The username you selected is already taken, please try again`
     }

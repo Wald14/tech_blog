@@ -1,27 +1,4 @@
-{{!-- {
-"status": "success",
-"payload": [
-{
-"id": 1,
-"title": "Sports",
-"blog_content": "Hockey is the best team sport by far!",
-"user_id": 1,
-"createdAt": "2023-11-11T21:14:20.000Z",
-"updatedAt": "2023-11-11T21:14:20.000Z",
-"Comments": [
-{
-"id": 1,
-"comment_content": "You're totally right, hockey rules!",
-"user_id": 1,
-"blog_id": 1,
-"createdAt": "2023-11-11T21:14:25.000Z",
-"updatedAt": "2023-11-11T21:14:25.000Z"
-}
-]
-}
-]
-} --}}
-
+{{!-- Display Blog --}}
 <div class="card">
 	<h3 class="card-header">{{data.title}}</h3>
 	<div class="card-body">
@@ -33,21 +10,34 @@
 		</p>
 	</div>
 </div>
+
+{{!-- Display comments --}}
 {{#each data.Comments as |comment|}}
 <div class="card">
-	<div class="card-body">
+	<div class="card-body commentA">
 		{{comment.comment_content}}
 	</div>
-	<div class="card-body"></div>
-	- by {{comment.User.username}} on {{format_time comment.createdAt}}
-</div>
+	<div class="card-body commentB">
+	By: {{comment.User.username}}
+	</div>
+		<div class="card-body commentC">
+	{{format_time comment.createdAt}}
+	</div>
 </div>
 {{/each}}
-<div class="card">
-	<form id="create-comment-form" blog_id="{{data.id}}">
+
+{{!-- Display add comment functionality OR notice to login --}}
+{{#if loggedIn}}
+<div class="card removeBorder"> 
+	<form id="create-comment-form" class="commentForm" blog_id="{{data.id}}">
 		<textarea id="commentField" class="form-control" rows="3" placeholder="Leave a comment..."></textarea>
-		<input type="submit">
+		<input class="btn submitBtn" type="submit">
 	</form>
 </div>
+{{else}}
+<div>
+	<p id="loginNotice"><a href="/login-signup" class="loginlink">Login</a> to leave a comment!</p>
+</div>
+{{/if}}
 
 <script src="/js/newComment.js"></script>

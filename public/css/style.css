@@ -1,24 +1,116 @@
+:root {
+  --color1: #3C3D42;
+  --color2: #9CCD62;
+  --color3: #F6F8E2;
+  --color4: #E0DDCA;
+  --color5: #780000;
+  --color6: rgb(40, 41, 44);
+  --color7: #638b31;
+  --color8: #380101;
+}
+
+body {
+  background-color: #3C3D42;
+  padding-bottom: 20px;
+}
+
 a {
   all: unset;
   cursor: pointer;
 }
 
 h1 {
-  color: #fff;
+  color: var(--color2);
+  background-color: var(--color6);
   padding: 0px 10px 10px 10px;
+}
+
+h2 {
+  color: var(--color2);
+  margin-left: 5%
+}
+
+nav {
+  background-color: var(--color6);  
+  color: var(--color4);
+}
+
+.removeBorder {
+  border: none;
+}
+
+.card-header {
+  background-color: var(--color4);
+  color: var(--color1);   
 }
 
 .card-body {
   padding: 0px 10px;
 }
 
-.card {
-  margin: 10px;
-  max-width: 700px;
+.card,
+#create-blog-form,
+#edit-blog-form,
+#login-form,
+#signup-form {
+  margin: 10px 5%;
 }
 
-#signupConfirmation {
-  color: darkred
+.commentA,
+.commentB,
+.commentC {
+  background-color: var(--color3);
+  padding-top: 10px;
+  padding-left: 1%;
+}
+
+.commentA {
+  font-size: 1rem
+}
+
+.commentB {
+  font-size: 0.9rem
+}
+
+.commentC {
+  padding-top: 0px;
+  font-size: 0.8rem
+}
+
+.commentForm {
+  background-color: var(--color1);
+  border: none;
+}
+
+.loginlink {
+  text-decoration: underline;
+}
+
+.loginlink:hover {
+  color: var(--color7);
+}
+
+.submitBtn {
+  background-color: var(--color2);
+  border-color: var(--color1);
+}
+
+.submitBtn:hover {
+  background-color: var(--color7);
+}
+
+#create-blog-form label,
+#edit-blog-form label,
+#login-form label, 
+#signup-form label {
+  color: var(--color2);
+}
+
+#deleteBtn {
+  background-color: var(--color5);
+  color: var(--color3);
+  margin: 10px 30%;
+  border: solid 1px var(--color8)
 }
 
 #logoutBtn {
@@ -26,4 +118,30 @@ background-color: Transparent;
 border: none;
 cursor:pointer;
 overflow: hidden;
+}
+
+#loginNotice {
+  margin: 10px 5%;
+  color: var(--color2); 
+  font-size: 1.5rem;  
+}
+
+
+#login-form,
+#signup-form {
+  max-width: 400px;
+}
+
+#newTopicBtn {
+  background-color: var(--color2);
+  color: var(--color1);
+  margin-left: 5%
+}
+
+#newBlogBtn,
+#saveBlogBtn,
+#submitBtn {
+  background-color: var(--color2);
+  color: var(--color1);
+  margin: 0% 30%
 }
