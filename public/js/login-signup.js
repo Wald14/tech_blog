@@ -38,7 +38,7 @@ const signupHandler = async (event) => {
       body: JSON.stringify({ username, password }),
       headers: { 'Content-Type': 'application/json' },
     });
-    console.log(response)
+    // console.log(response)
 
     if (response.ok) {
       // If successful, redirect the browser to the dashboard page

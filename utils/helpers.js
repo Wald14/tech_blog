@@ -4,5 +4,5 @@ module.exports = {
     let day = d.toLocaleDateString();
     let time = d.toLocaleTimeString();
     return (`${day} at ${time}`);
-  }
+  },
 }

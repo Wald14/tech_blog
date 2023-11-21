@@ -39,14 +39,15 @@
 		{{comment.comment_content}}
 	</div>
 	<div class="card-body"></div>
-	- {{comment.user_id}} {{format_time comment.createdAt}}
+	- by {{comment.User.username}} on {{format_time comment.createdAt}}
 </div>
 </div>
 {{/each}}
 <div class="card">
-	<form>
-		<input type='hidden' name='blog_id' value='{{data.id}}'>
-		<textarea class="form-control" rows="3" placeholder="Leave a comment..."></textarea>
-		<input type="button" value="Submit">
+	<form id="create-comment-form" blog_id="{{data.id}}">
+		<textarea id="commentField" class="form-control" rows="3" placeholder="Leave a comment..."></textarea>
+		<input type="submit">
 	</form>
 </div>
+
+<script src="/js/newComment.js"></script>

@@ -35,7 +35,7 @@ router.get('/single-blog/:id', async (req, res) => {
     const payload = await Blog.findByPk(
       req.params.id,
       {
-      include: [{model: Comment}, {model: User}]
+      include: [{model: Comment, include: {model: User}}, {model: User}]
       }
     );
     const data = payload.get({plain: true});
