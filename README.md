@@ -36,9 +36,26 @@ Questions can be received on the [Github Repository](https://github.com/Wald14/t
 ## Preview
 The following images share the application's apperance:
 
-![Image preview of the Home page]()
-![Image preview of the login/signup screen]()
-![Image preview of the viewing a blog]()
-![Image preview of the dashboard screen]()
-![Image preview of the making a blog screen]()
-![Image preview of the editing a blog screen]()
+Home Page
+
+![Image preview of the Home page](./public/images/home.jpeg)
+
+Login Page
+
+![Image preview of the login/signup screen](./public/images/login.jpeg)
+
+View Blog Page (ability to comment only avaliable on login)
+
+![Image preview of the viewing a blog](./public/images/view-blog.jpeg)
+
+Dashboard Page
+
+![Image preview of the dashboard screen](./public/images/dashboard.jpeg)
+
+New Blog Page
+
+![Image preview of the making a blog screen](./public/images/new-blog.jpeg)
+
+Edit Blog Page
+
+![Image preview of the editing a blog screen](./public/images/edit-blog.jpeg)
